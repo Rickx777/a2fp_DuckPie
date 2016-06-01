@@ -1,0 +1,59 @@
+Team DuckPie Plan for Success
+
+Crucial Jobs:
+1) Coding for The Oregon Trail in Java 
+2) Coding for The Oregon Trail in Processing
+3) Debugging code for both
+4) Pushing and pulling from Github
+5) Updating Devlog with meaningful work and attribution.
+
+Components (Functionality vs Extras)
+Well first off we need a family of characters because The Oregon Trail is a survival game and you must take your family to the end of the trail to survive.
+We need to have some kind of health system for the characters because again the whole point of the game is survival so there must be a way for them to die. 
+Survival tactics - Hunting, fishing, sleeping, eating, healing(medicine) and various other actions to ensure human survival.
+A time system is required as well as a weather system because that adds more functionality into the game.
+
+Extra-
+A scoring system so at the end of the game you have something that you were working towards and it may drive two users to compete for a higher score. 
+
+Ability to pick how many family members to start with, score will be adjusted accordingly.
+
+Extra animals for more capabilities 
+
+A bartering system like in Fallout?
+
+Prereqs
+
+Pre reqs for extra animals are the original animals.
+A scoring system requires all the main functionality for there to actually be something to count for
+Pre Reqs to make code before graphics.
+
+Tasks
+
+Collaborative
+Creating the games main engine will require a collaborative effort with how it runs but all the other stuff can be subdivided among all of us.
+
+An inventory system may be tough but Conan may know how to do it because his last final project was pretty advanced in the coding and contained all these systems.
+
+Time and Weather will be quite a hassle as well
+
+
+Subdivisions:
+Creation of Characters
+Creation of Health and effects to health
+Creation of Survival tactics
+Creation of areas
+
+Timeline
+
+Start creating smaller subclasses among us, should not take too much time judging how they are small.
+
+Create game main engine together.
+
+Inventory system for ensured survival.
+
+A Health system should be perfected in order for the game to achieve maximum functionality, no health system, no survival, bye-bye Oregon Trail.
+
+Things that effect Health should be easily laid down.
+
+A time and weather system that could affect a player's choices and provides more functionality to the game.
