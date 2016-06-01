@@ -1,1 +1,5 @@
 [05/18/16] Created Repo and devlog.txt.
+[05/20/16] Finalized pick for The Oregon Trail Idea 
+[05/23/16] Handed in Proposal for project which included history and functionality of game
+[05/29/16] Learned how to do Processing by replicating chain-reaction shown in class
+[05/31/16] Added Plan for the future.
