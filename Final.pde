@@ -6,7 +6,7 @@ class vis{
 
 	vis(int d){
 		dx = 600;
-		dy = 300;
+		dy = 400;
 		p = 0;
 		c = d;
 	}
@@ -42,7 +42,7 @@ class Animation { //credit to processing.com for code!
 
 Animation test;
 void setup(){
-	size(600,300);
+	size(600,400);
 	background(0,0,0);
 	frameRate(25);
 	test = new Animation("AB_",50);

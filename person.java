@@ -5,15 +5,15 @@ public class person{
   private double eveCh; //chance of bone breaking
   private int health; // 1 -> 4 | very poor -> good
   private int food; // [1, 2, 4] lb of food 	
-  private double work; //work rate (
+  private double work; //work rate
 
   public person(String n){
      name = n;
      disCh = 0;
      eveCh = 0;
      health = 4; //start [good]
-     food = 1; //[filling] start
-     work = 0.6; //steady, strenuous, grueling (0.1, 0.3, 0.6) -- 0 if resting
+     food = 4; //[filling] start
+     work = 0.1; //steady, strenuous, grueling (0.1, 0.3, 0.6) -- 0 if resting
   }
     
   public int getHealth(){
@@ -35,7 +35,7 @@ public class person{
   public double getWork(){
     return work;
   }
-  
+     
   public void setFood(int c){ 
     food = c;
   }
@@ -45,28 +45,33 @@ public class person{
   }
 
   private int Disease(){
-    double factor = 0.4 + health/10. + food/10. - work/1.37;
-    if (disCh > factor){
-	return (int)(Math.random() * 5) + 1;//cholera, dysentary, typhoid, cholera, measles
-    }
+      double factor = 4 - .65 - work *2.2 - .55/health;
+      if (food != 0) {factor = 4 - .60/food - work*2.2 - .45/health;}
+
+      if (disCh > factor){
+	  return (int)(Math.random() * 5) + 1;//cholera, dysentary, typhoid, cholera, measles
+      }
     System.out.println("Dis factor: " + factor);
     return 0;
   }
   
   private int Event(){
-    double factor = 0.4 + health/10. + food/10. - work/1.37;
-    if (eveCh > factor){
-	return (int)(Math.random() * 3) + 1;//exhaustion, broken bone, malnutrition 
-    }
-    System.out.println("Eve factor: " + factor);
-    return 0;
+      double factor = 4 - .65 - work *2.2 - .55/health;
+      if (food != 0) {factor = 4 - .60/food - work*2.2 - .45/health;}
+      
+      if (eveCh > factor){
+	 return (int)(Math.random() * 3) + 1;//exhaustion, broken bone, malnutrition 
+      }
+
+      System.out.println("Eve factor: " + factor);
+      return 0;
   }
 
-  public void update(){
-      disCh = (Math.random() * 4) * 0.12;
-      eveCh = (Math.random() * 4) * 0.12;
-      System.out.println("Event: " + Event());
-      System.out.println("Disease: " + Disease());
+  public String update(){
+      eveCh = Math.random() * 2.3 - 0.3;
+      disCh = Math.random() * 2.3 - 0.3;
+      int e = 0;
+      int d = 0;
   }
 
     public static void main(String[] args){ //Test for person class
