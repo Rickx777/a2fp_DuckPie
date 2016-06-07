@@ -5,3 +5,4 @@
 [05/31/16] Added Plan for the future.
 [06/05/16] person.java created
 [06/06/16] person.java updated -- needs optimization on disease chance and event chance.
+[06/06/16] Added an updated Plan for the future
