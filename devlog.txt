@@ -3,3 +3,5 @@
 [05/23/16] Handed in Proposal for project which included history and functionality of game
 [05/29/16] Learned how to do Processing by replicating chain-reaction shown in class
 [05/31/16] Added Plan for the future.
+[06/05/16] person.java created
+[06/06/16] person.java updated -- needs optimization on disease chance and event chance.
