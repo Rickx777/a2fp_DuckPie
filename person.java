@@ -13,7 +13,7 @@ public class person{
      eveCh = 0;
      health = 4; //start [good]
      food = 4; //[filling] start
-     work = 0.1; //steady, strenuous, grueling (0.1, 0.3, 0.6) -- 0 if resting
+     work = 0.6; //steady, strenuous, grueling (0.1, 0.3, 0.6) -- 0 if resting
   }
     
   public int getHealth(){
@@ -45,8 +45,8 @@ public class person{
   }
 
   private int Disease(){
-      double factor = 4 - .65 - work *2.2 - .55/health;
-      if (food != 0) {factor = 4 - .60/food - work*2.2 - .45/health;}
+      double factor = 4 - 1.45 - work * 1.3 - .55/health;
+      if (food != 0) {factor = 4 - 1.25/food - work * 1.3 - .45/health;}
 
       if (disCh > factor){
 	  return (int)(Math.random() * 5) + 1;//cholera, dysentary, typhoid, cholera, measles
@@ -56,8 +56,8 @@ public class person{
   }
   
   private int Event(){
-      double factor = 4 - .65 - work *2.2 - .55/health;
-      if (food != 0) {factor = 4 - .60/food - work*2.2 - .45/health;}
+      double factor = 4 - 1.45 - work * 1.3 - .55/health;
+      if (food != 0) {factor = 4 - 1.25/food - work*1.3 - .45/health;}
       
       if (eveCh > factor){
 	 return (int)(Math.random() * 3) + 1;//exhaustion, broken bone, malnutrition 
@@ -68,10 +68,11 @@ public class person{
   }
 
   public String update(){
-      eveCh = Math.random() * 2.3 - 0.3;
-      disCh = Math.random() * 2.3 - 0.3;
-      int e = 0;
-      int d = 0;
+      eveCh = Math.random() * 2.6;
+      disCh = Math.random() * 2.6;
+      Event();
+      Disease();
+      return "fatality";
   }
 
     public static void main(String[] args){ //Test for person class
