@@ -1,8 +1,10 @@
-[05/18/16] Created Repo and devlog.txt.
-[05/20/16] Finalized pick for The Oregon Trail Idea 
-[05/23/16] Handed in Proposal for project which included history and functionality of game
-[05/29/16] Learned how to do Processing by replicating chain-reaction shown in class
-[05/31/16] Added Plan for the future.
-[06/05/16] person.java created
-[06/06/16] person.java updated -- needs optimization on disease chance and event chance.
-[06/06/16] Added an updated Plan for the future
+[05/18/16] Created Repo and devlog.txt. (Conan | Dhruba)
+[05/20/16] Finalized pick for The Oregon Trail Idea (Everyone)
+[05/23/16] Handed in Proposal for project which included history and functionality of game (Dhruba)
+[05/29/16] Learned how to do Processing by replicating chain-reaction shown in class (Conan)
+[05/31/16] Added Plan for the future. (Dhruba)
+[06/05/16] person.java created (Conan)
+[06/06/16] person.java updated -- needs optimization on disease chance and event chance. (Conan)
+[06/06/16] Added an updated Plan for the future (Dhruba)
+[06/10/16] Finished scaling for person.java (Conan)
+[06/13/16] Finished coding for first sequences and user setup (Conan)
