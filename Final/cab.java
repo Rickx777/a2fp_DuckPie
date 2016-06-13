@@ -1,21 +1,28 @@
 public class cab{
 	int food;
-	int money;
+	double money;
 	int wheels;
 	int oxen;
 	int clothing;
 	int health;
+	int bullets;
 
-public cab(int m){
+public cab(double m){
 	money = m;
+	food = 0;
+	wheels = 0;
+	oxen = 0;
+	clothing = 0;
+	bullets = 0;
+	health = 0;
 }
 
 
-public cab(int m, int f, int w, int o, int c, int h){
-	food = f; money = m; wheels = w; oxen = o; clothing = c; health = h;
+public cab(double m, int f, int w, int o, int c, int b, int h){
+	money = m; food = f;  wheels = w; oxen = o; clothing = c; bullets = b; health = h;
 }
 
-public void setMoney(int a){
+public void setMoney(double a){
 	money = a;
 }
 

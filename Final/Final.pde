@@ -1,3 +1,4 @@
+
 class vis{ //Visual handler----------------------------------
 	int dx; //window width
 	int dy; //window height
@@ -11,8 +12,8 @@ class vis{ //Visual handler----------------------------------
 		choosing = "";
 	}
 
-	void display(int d){
-		c = d;
+	void display(int e){
+		c = e;
 		if (c == 0){
 			image(loadImage("./pictures/Start.png"),0,0);			
 		}
@@ -35,10 +36,38 @@ class vis{ //Visual handler----------------------------------
       text("3. 300", 35, 160);
       text("Your choice: " + choosing, 70, 200);
 		}
+		else if (c == 3){ //SHOP----------------
+			background(0,0,0);
+			if (d == 0){
+			text("\nHow much food do you want?\n\n(This costs 5 cents a pound)\n\n\n You currently have " + cabin.money + " dollars." , 35, 20);
+			text("I want " + choosing + " pounds.", 55, 200);
+			}
+
+      if (d == 1){
+      text("\nHow many wheels do you want?\n\n(This costs 5 dollars a wheel)\n\n\n You currently have " + cabin.money + " dollars." , 35, 20);
+      text("I want " + choosing + " wheels.", 55, 200);
+      }  
+				
+      if (d == 2){
+      text("\nHow many oxen do you want?\n\n(This costs 20 dollars an oxen)\n\n\n You currently have " + cabin.money + " dollars." , 35, 20);
+      text("I want " + choosing + " oxen.", 55, 200);
+      }  
+
+      if (d == 3){
+      text("\nHow much clothing do you want?\n\n(This costs 2.5 dollars per pair)\n\n\n You currently have " + cabin.money + " dollars." , 35, 20);
+      text("I want " + choosing + " pairs of clothing.", 55, 200);
+      }  
+
+      if (d == 4){
+      text("\nHow many bullets do you want?\n\n(This costs 3 dollars per box of 20.)\n\n\n You currently have " + cabin.money + " dollars." , 35, 20);
+      text("I want " + choosing + " boxes.", 55, 200);
+      }    			
+		}
 	}
 }
 
-class input{
+
+class input{ //@               Input processor for everything!                @//
 	int x, y, w, h; 
 	boolean isVisable, text;
 	String intake;
@@ -60,7 +89,7 @@ class input{
 	}	
 
 	int ipush(){
-		int tmp = Integer.parseInt(intake);
+		int tmp = Integer.parseInt(intake.trim());
 		intake = "";
 		return tmp;
 	}
@@ -133,13 +162,14 @@ void keyPressed(){  //~~~~~~~~~~~~~~~~~~~~~~~~~~HANDLER OF INPUT~~~~~~~~~~~~~~~~
 			}
 		if (d == 5){
 			screen.c += 1;
+			d = 0;
 		}
 	}
 
 	if (screen.c == 2){ //@      CHOOSING THE MONEYS        @//
 		senioritis.text = false;		
 		screen.display(screen.c);
-		if (keyCode == ENTER && senioritis.intake.length() > 0 && Integer.parseInt(senioritis.getDis()) < 4){
+		if (keyCode == ENTER && senioritis.intake.length() > 0 && Integer.parseInt(senioritis.getDis().trim()) < 4){
 			int diff = senioritis.ipush();
 			cabin = new cab(diff * 100);
 			screen.c += 1;
@@ -153,7 +183,8 @@ void keyPressed(){  //~~~~~~~~~~~~~~~~~~~~~~~~~~HANDLER OF INPUT~~~~~~~~~~~~~~~~
 		else if (senioritis.intake.length() > 0 && (keyCode == DELETE || keyCode == BACKSPACE)){
       senioritis.intake = senioritis.intake.substring(0,senioritis.intake.length() - 1);
       screen.choosing = senioritis.intake;
-      screen.display(screen.c);}
+      screen.display(screen.c);
+		}
     else if (keyCode != SHIFT && keyCode != CONTROL && keyCode != ALT && senioritis.intake.length() < 2){
       senioritis.putit(key);
 			screen.choosing = senioritis.intake;
@@ -162,16 +193,52 @@ void keyPressed(){  //~~~~~~~~~~~~~~~~~~~~~~~~~~HANDLER OF INPUT~~~~~~~~~~~~~~~~
 	}
 
 	if (screen.c == 3){//@          SHOP (NON-PROGRESSION)      @//
-		 while (shop.c != 0){
-					shop.
-		 }
+		screen.display(screen.c);
+    if (keyCode == ENTER && senioritis.intake.length() > 0 && canAfford(cabin.money,Integer.parseInt(senioritis.getDis().trim()),d)){
+      int tmp = senioritis.ipush();
+			buylist[d] = tmp;
+			cabin.money = remaining(cabin.money,tmp,d);		
+      d += 1;
+			screen.choosing = senioritis.intake;
+      screen.display(screen.c);
+    }
+    else if (keyCode == ENTER){
+      senioritis.intake = "";
+      screen.choosing = senioritis.intake;
+      screen.display(screen.c);
+    }    
+    else if (senioritis.intake.length() > 0 && (keyCode == DELETE || keyCode == BACKSPACE)){
+      senioritis.intake = senioritis.intake.substring(0,senioritis.intake.length() - 1);
+      screen.choosing = senioritis.intake;
+      screen.display(screen.c);
+		}
+    else if (keyCode != SHIFT && keyCode != CONTROL && keyCode != ALT && senioritis.intake.length() < 5){
+      senioritis.putit(key);
+      screen.choosing = senioritis.intake;
+      screen.display(screen.c);
+    }
+		if (d == 5){
+      screen.c += 1;
+			cabin = new cab(cabin.money, buylist[0],buylist[1],buylist[2],buylist[3],buylist[4] * 20,4);
+      d = 0;
+    }
 	}
 }
 
 
 //------end of game code--------//
 
+//helpers
+double remaining(double m, int n, int item){
+	double[] costs = {0.05, 5, 20, 2.5, 3};
+	return m - (n * costs[item]);
+}
 
+boolean canAfford(double m, int n, int item){
+	return remaining(m,n,item) >= 0;
+}
+
+//
 /* ----TEST code for animations----
 class Animation { //credit to processing.com for code!
   PImage[] images;
